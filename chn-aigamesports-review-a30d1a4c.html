@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes">
+  <title>爱游戏体育 · 探索竞技与乐趣</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fce9d8 0%, #fce2cc 40%, #fbdbc1 70%, #f7cfaf 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem 2.5rem;
+    }
+
+    .page-wrap {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 252, 246, 0.55);
+      backdrop-filter: blur(1px);
+      border-radius: 48px 48px 32px 32px;
+      padding: 2rem 1.8rem 2.8rem;
+      box-shadow: 0 18px 28px -8px rgba(150, 80, 30, 0.12);
+    }
+
+    /* hero */
+    .hero {
+      text-align: center;
+      padding: 2.2rem 0.5rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 550;
+      letter-spacing: 2px;
+      color: #5d3e2b;
+      background: linear-gradient(to right, #7a543b, #b87a53);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .hero .sub {
+      font-size: 1.18rem;
+      color: #704d33;
+      background: rgba(255, 240, 226, 0.75);
+      display: inline-block;
+      padding: 0.2rem 1.5rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 2px 6px rgba(170, 110, 60, 0.08);
+      margin-top: 0.5rem;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 1.4rem auto 0;
+      color: #4f3a2b;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      background: rgba(255, 249, 241, 0.5);
+      padding: 0.9rem 1.5rem;
+      border-radius: 56px 16px 56px 16px;
+    }
+
+    /* 卡片通用 */
+    .card-white {
+      background: #ffffffea;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem 2rem;
+      box-shadow: 0 8px 20px rgba(140, 80, 40, 0.06), 0 0 0 1px rgba(218, 173, 140, 0.15);
+      margin: 2rem 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.45rem;
+      font-weight: 520;
+      color: #5f4030;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.3px;
+    }
+
+    .section-title span {
+      background: #dba882;
+      width: 6px;
+      height: 26px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .flex-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: space-between;
+    }
+
+    .feature-item {
+      flex: 1 1 200px;
+      background: #fcf6ef;
+      border-radius: 24px;
+      padding: 1.5rem 1.2rem 1.6rem;
+      transition: all 0.2s ease;
+      border: 1px solid #eddccc;
+    }
+
+    .feature-item:hover {
+      background: #fffaf4;
+      border-color: #cba888;
+      box-shadow: 0 6px 14px rgba(160, 90, 40, 0.06);
+    }
+
+    .feature-item h3 {
+      font-size: 1.2rem;
+      font-weight: 530;
+      color: #694b33;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+      font-size: 0.98rem;
+      color: #5b4432;
+      line-height: 1.6;
+    }
+
+    .scene-note {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.5rem;
+      margin: 1rem 0 0.2rem;
+    }
+
+    .scene-note li {
+      list-style: none;
+      background: #fffbf6;
+      padding: 0.75rem 1rem 0.75rem 1.8rem;
+      border-radius: 50px;
+      color: #4f3b2c;
+      position: relative;
+      font-size: 0.98rem;
+      border: 1px solid #ede0d2;
+    }
+
+    .scene-note li::before {
+      content: "✦";
+      color: #b17954;
+      font-weight: 400;
+      position: absolute;
+      left: 10px;
+      top: 0.7rem;
+      font-size: 1rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .faq-item {
+      padding: 0.8rem 1rem;
+      background: #fcf4ec;
+      border-radius: 40px;
+      border-left: 6px solid #dba278;
+    }
+
+    .faq-q {
+      font-weight: 520;
+      color: #573f2e;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #4f3c2d;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding-left: 0.2rem;
+    }
+
+    .link-footnote {
+      margin-top: 2.5rem;
+      padding: 1.5rem 0 0.2rem;
+      border-top: 2px dashed #e6cdb8;
+      text-align: center;
+      color: #4c3829;
+      font-size: 1rem;
+    }
+
+    .link-footnote a {
+      color: #7d563d;
+      text-decoration: none;
+      font-weight: 520;
+      background: #f3e3d6;
+      padding: 0.2rem 1rem;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.15s;
+      display: inline-block;
+      margin: 0 0.15rem;
+    }
+
+    .link-footnote a:hover {
+      background: #dbb997;
+      color: #2f1f14;
+    }
+
+    .bottom-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      color: #7a614d;
+    }
+
+    .bottom-meta span {
+      opacity: 0.7;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #e7cfbc;
+      margin: 1.8rem 0 0.2rem;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 1.2rem 1rem 2rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .flex-features {
+        flex-direction: column;
+      }
+
+      .scene-note {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-item {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <!-- hero 区 -->
+  <section class="hero">
+    <h1>爱游戏体育</h1>
+    <div class="sub">⚡ 竞技 · 趣味 · 共融</div>
+    <p>
+      从街头的友好切磋到线上赛场的紧张节奏，体育与游戏始终是灵感的自然延伸。  
+      <strong>爱游戏体育</strong> 聚合了运动策略、数字竞技和休闲博弈的多元体验，陪伴你在轻松氛围中感受竞技的炽热。
+    </p>
+  </section>
+
+  <!-- 优势区：卡片式 -->
+  <div class="card-white">
+    <div class="section-title"><span></span> 为什么越来越多朋友选择这里</div>
+    <div class="flex-features">
+      <div class="feature-item">
+        <h3>🏅 多元项目</h3>
+        <p>涵盖团队战术、即时反应、棋牌博弈等等，每种类型都保留了恰到好处的竞技深度。</p>
+      </div>
+      <div class="feature-item">
+        <h3>📊 数据透明</h3>
+        <p>赛程、积分、统计信息清晰可查，不玩虚的。你随时可以了解自己的成长曲线。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🌱 轻竞技氛围</h3>
+        <p>无论是新手还是爱好者，都能找到志趣相投的伙伴。氛围友好，重在享受过程。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 说明区 / 场景与提醒 -->
+  <div class="card-white">
+    <div class="section-title"><span></span> 适合的场景 · 一些提示</div>
+    <ul class="scene-note">
+      <li>在茶歇或通勤间隙来一局，放松但不仓促</li>
+      <li>周末约上三五好友，远程切磋或本地同乐</li>
+      <li>关注社区的趣味赛事，体验不一样的对抗节奏</li>
+      <li>适度竞技，保持心情愉快，比胜负更珍贵</li>
+    </ul>
+    <p style="margin-top: 1.5rem; font-size: 0.98rem; color: #5d4231; background: #f5e8dd; padding: 0.7rem 1.2rem; border-radius: 60px;">
+      💡 所有项目均尊重公平原则，不设诱导付费或虚假排行。竞技的价值在于真实的参与感。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="card-white">
+    <div class="section-title"><span></span> 几个常被问到的</div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">❓ 需要很强的技术基础吗？</div>
+        <div class="faq-a">完全不需要。平台上的多数项目都设计了渐进式引导，从了解规则到参与对局，过程自然流畅。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ 是否有收费项目或隐藏条款？</div>
+        <div class="faq-a">核心竞技与数据服务均保持免费公开。部分增值功能会明确标示，你可以自由选择，绝无强制。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ 个人信息安全怎么样？</div>
+        <div class="faq-a">采用常规加密与隐私保护措施，不会向第三方违规共享。你的注意力应该放在游戏本身。</div>
+      </div>
+    </div>
+    <p style="margin-top: 1.2rem; text-align: right; font-style: italic; color: #6f5541;">—— 更多疑问欢迎在相关页面中了解细节</p>
+  </div>
+
+  <!-- 底部链接 自然嵌入句子 -->
+  <div class="link-footnote">
+    <p style="margin-bottom: 0.6rem;">
+      如果你对竞技体育与趣味游戏之间的结合感兴趣，不妨在 
+      <a href="https://chn-aigamesports.com">爱游戏体育</a> 
+      了解更多项目动态和社区氛围。我们持续关注玩法与体验的平衡。
+    </p>
+    <div class="bottom-meta">
+      <span>探索 · 交流 · 享受</span>
+      <span>© 2025 · 爱游戏体育方向</span>
+    </div>
+    <hr>
+    <p style="font-size: 0.85rem; color: #8b7060; margin-top: 0.8rem;">
+      页面仅作内容介绍，不构成任何商业承诺。保持热爱，理性竞技。
+    </p>
+  </div>
+</div>
+</body>
+</html>
